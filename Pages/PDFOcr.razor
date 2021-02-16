@@ -1,0 +1,25 @@
+﻿@page "/PDF-Ocr"
+@inherits PDFOcrModel
+<h3>Altair EDI Framework-PDF Version</h3>
+
+<div class="row">
+    <mat-card>
+        <InputFile OnChange="ViewImage" />
+        <p>@status</p>
+        <hr />
+        <button disabled="@loading" class="btn btn-primary btn-lg" @onclick="GetText">
+            @if (loading)
+            {
+                <span class="spinner-border spinner-border-sm mr-1"></span>
+            }
+            Extract Text
+        </button>
+    </mat-card>
+</div>
+<br />
+<div class="row">
+
+    <textarea disabled class="form-control" rows="10" cols="15">@Result.DetectedText</textarea>
+    <hr />
+
+</div>
